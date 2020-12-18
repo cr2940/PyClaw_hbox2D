@@ -15,6 +15,7 @@ For diagonal example (located under "diagonal_barrier"):
 
 For horizontal barrier example (located under "horizontal_barrier"):
 `pyclaw/src/pyclaw/classic/hbox2D_mod.f90`
+`pyclaw/src/pyclaw/classic/redist_module.f90`
 `pyclaw/src/pyclaw/classic/flux2.f90` 
 `pyclaw/src/pyclaw/classic/setup.py` 
 `pyclaw/src/pyclaw/classic/step2ds.f90`
