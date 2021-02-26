@@ -538,8 +538,6 @@ class ClawSolver2D(ClawSolver):
                           qold,self.qbc,qold2,self.qbc2,self.auxbc,self.auxbc,dx,dy,self.dt,self._method,self._mthlim,\
                           self.aux1,self.aux2,self.aux3,self.work,2,self.fwave,rpn2,rpt2,bar_ht)
 
-                    self.qbc2 = self.boundary_qbc2(self.qbc2,state.problem_data['BC2'],mx,my,2)
-
                     cfl = cfl_x
 
             else:
@@ -557,50 +555,7 @@ class ClawSolver2D(ClawSolver):
         else:
             raise NotImplementedError("No python implementation for step_hyperbolic in 2D.")
         return self.qbc2
-    def boundary_qbc2(self,array,BC,mx,my,ixy):
-        if BC=="ww":
-            array[0,1,:] = array[0,2,:]
-            array[0,0,:] = array[0,3,:]
-            array[1:3,1,:] = -array[1:3,2,:]
-            array[1:3,0,:] = -array[1:3,3,:]
-            array[1:3,:,mx+2] = -array[1:3,:,mx+1]
-            array[1:3,:,mx+3] = -array[1:3,:,mx]
-            array[0,:,mx+2] = array[0,:,mx+1]
-            array[0,:,mx+3] = array[0,:,mx]
-            
 
-        if BC=="ee":
-            array[0,1,:] = array[0,2,:]
-            array[0,0,:] = array[0,1,:]
-            array[1:3,1,:] = array[1:3,2,:]
-            array[1:3,0,:] = array[1:3,1,:]
-            array[1:3,:,mx+2] = array[1:3,:,mx+1]
-            array[1:3,:,mx+3] = array[1:3,:,mx+2]
-            array[0,:,mx+2] = array[0,:,mx+1]
-            array[0,:,mx+3] = array[0,:,mx+2]
-
-        if BC=="we":
-            array[0,1,:] = array[0,2,:]
-            array[0,0,:] = array[0,3,:]
-            array[1:3,1,:] = -array[1:3,2,:]
-            array[1:3,0,:] = -array[1:3,3,:]
-            array[1:3,:,mx+2] = array[1:3,:,mx+1]
-            array[1:3,:,mx+3] = array[1:3,:,mx+2]
-            array[0,:,mx+2] = array[0,:,mx+1]
-            array[0,:,mx+3] = array[0,:,mx+2]
-
-        if BC=="ew":
-            array[0,:,1] = array[0,:,2]
-            array[0,:,0] = array[0,:,1]
-            array[1:3,:,1] = array[1:3,:,2]
-            array[1:3,:,0] = array[1:3,:,1]
-            array[1:3,:,mx+2] = -array[1:3,:,mx+1]
-            array[1:3,:,mx+3] = -array[1:3,:,mx]
-            array[0,:,mx+2] = array[0,:,mx+1]
-            array[0,:,mx+3] = array[0,:,mx]
-
-
-        return array
 # ============================================================================
 #  ClawPack 3d Solver Class
 # ============================================================================
