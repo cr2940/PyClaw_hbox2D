@@ -21,6 +21,18 @@ For horizontal barrier example (located under "horizontal_barrier"):
 `pyclaw/src/pyclaw/classic/step2ds.f90`
 `pyclaw/src/pyclaw/classic/solver.py`
 
+For slanted barrier example (located under "slanted_barrier"):
+`pyclaw/src/pyclaw/classic/step2ds.f90`
+`pyclaw/src/pyclaw/classic/redist_module.f90`
+`pyclaw/src/pyclaw/classic/aux_module_SRD2.f90`
+`pyclaw/src/pyclaw/classic/aux_hbox2.f90`
+`pyclaw/src/pyclaw/classic/setup.py`
+`pyclaw/src/pyclaw/classic/solver.py`
+`pyclaw/src/pyclaw/solver.py`
+`pyclaw/src/pyclaw/controller.py`
+`pyclaw/src/pyclaw/solution.py`
+`pyclaw/src/pyclaw/state.py`
+
 Download original PyClaw; go to these directories and either add (if not there) or replace (if there) with these files, one at a time for diagonal and horizontal barrier separately. 
 
 To download original PyClaw, download Clawpack following the instructions in clawpack.org (http://www.clawpack.org/developers.html?highlight=developers%20install#installation-instructions-for-developers). You'll need to download Anaconda3. Once you download Clawpack, you compile by going to `clawpack/pyclaw/src/pyclaw/classic` and run `python setup.py install` after modifying the codes with codes in this repo as discussed above. Then you go to the `build/lib` directory inside the same `classic` directory and copy the `.so` files and paste them to `anaconda3/lib/python3/site-packages/clawpack/pyclaw/classic`. Also, for the diagonal example, you should modify the PyClaw object files in the directory `anaconda3/lib/python3/site-packages/clawpack/pyclaw`.
