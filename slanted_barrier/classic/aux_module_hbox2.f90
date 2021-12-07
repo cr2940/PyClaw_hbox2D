@@ -537,11 +537,11 @@ contains
           call rotate_state(amdq_wall,amdq_wall,-t_vec,-n_vec2)
           call rotate_state(apdq_wall,apdq_wall,-t_vec,-n_vec2)
 
-         qtempu(:,i) = q_hbox_u(:,i) - dtdx*amdq_wall!/hbox_areas_u(i)
-         qtempd(:,i) = q_hbox_d(:,i) - dtdx*apdq_wall!/hbox_areas_d(i)
+         qtempu(:,i) = q_hbox_u(:,i) - dtdx*amdq_wall
+         qtempd(:,i) = q_hbox_d(:,i) - dtdx*apdq_wall
 
 
-       ! if (.not. ind_in_inds((/is,js/),comp_cov_inds_d)) then
+        if (.not. ind_in_inds((/is,js/),comp_cov_inds_d)) then
           select case (type_sunder(i))
           case (1) ! TYPE 1 Cut cell
             ! under small cell
@@ -621,9 +621,9 @@ contains
               (gp(:,is,js)) !f(qold(:,is,js),2)
 
           end select
-      ! end if
+      end if
 
-      ! if (.not. ind_in_inds((/is,js/),comp_cov_inds_u)) then
+       if (.not. ind_in_inds((/is,js/),comp_cov_inds_u)) then
           select case (type_supper(i))
           case (1) ! TYPE 1 Cut cell
             ! upper small cell
@@ -708,7 +708,7 @@ contains
               (gp2(:,is,js)) - dtdx/area_supper(i)*gm2(:,is,js+1) !f(qold2(:,is,js),2)
 
           end select
-        ! end if
+         end if
           ! ! print*, "*******TYPE: ", type_supper(i), "***********"
           ! !
           ! ! print*, "the undersmall cell: post" , qnew(:,is,js)
