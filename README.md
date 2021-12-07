@@ -1,5 +1,5 @@
 # PyClaw_hbox2D
-This is a collection of PyClaw files adapted specifically for using 2D hbox methods to solve 2D shallow water equations (see repo "2D_hbox").
+This is a collection of PyClaw files adapted specifically for using 2D hbox methods to solve 2D shallow water equations (see [repo](https://github.com/cr2940/2D_hbox) "2D_hbox").
 
 The files included in this repo are only the ones needed to add to and replace the same-named files in the original PyClaw repo, in order to make the examples in "2D_hbox" work:
 
